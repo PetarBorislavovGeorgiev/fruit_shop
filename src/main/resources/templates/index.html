@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head"></head>
+<head th:replace="~{fragments/head}"></head>
 <body>
-<div th:replace="fragments/navbar :: navbar"></div>
+<div th:replace="~{fragments/navbar}"></div>
 
 <div class="container">
 
@@ -10,7 +10,7 @@
     <p>Your one-stop shop for fresh fruits.</p>
 </div>
 
-<div th:replace="fragments/footer :: footer"></div>
+<div th:replace="~{fragments/footer}"></div>
 
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>

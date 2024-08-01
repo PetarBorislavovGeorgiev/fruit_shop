@@ -1,12 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <script src="../static/js/bootstrap.min.js"></script>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head}"></head>
+<body>
+<div th:replace="~{fragments/navbar}"></div>
 <body>
 <div class="container mt-5">
     <h2>Login</h2>
@@ -25,4 +21,3 @@
 
 <script src="js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
