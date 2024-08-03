@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head}"></head>
+
 <body>
 <div th:replace="~{fragments/navbar}"></div>
-<body>
-<div class="container mt-5">
+<div class="container mt-5" >
   <h2>Register</h2>
-  <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+  <form class="form-group" action="#" th:action="@{/register}" th:object="${user}" method="post" >
     <div>
       <label for="firstName">First Name:</label>
-      <input type="text" id="firstName" th:field="*{firstName}" required minlength="2" maxlength="50" />
+      <input type="text" id="firstName" th:field="*{firstName}" required minlength="2" maxlength="20" />
     </div>
     <div>
       <label for="middleName">Middle Name:</label>
-      <input type="text" id="middleName" th:field="*{middleName}"/>
+      <input type="text" id="middleName" th:field="*{middleName}" required minlength="2" maxlength="20" />
     </div>
     <div>
       <label for="lastName">Last Name:</label>
-      <input type="text" id="lastName" th:field="*{lastName}" required minlength="2" maxlength="50" />
+      <input type="text" id="lastName" th:field="*{lastName}" required minlength="2" maxlength="20" />
     </div>
     <div>
       <label for="email">Email:</label>
@@ -29,7 +29,7 @@
     </div>
     <div>
       <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required minlength="8" maxlength="20" />
+      <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required minlength="4" maxlength="20" />
     </div>
     <div>
       <label for="phoneNumber">Phone Number:</label>
@@ -43,7 +43,8 @@
 
 </div>
 
+<div th:replace="~{fragments/footer}"></div>
 
-<script src="js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 

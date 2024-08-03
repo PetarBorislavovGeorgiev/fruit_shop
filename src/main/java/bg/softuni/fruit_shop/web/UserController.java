@@ -1,6 +1,7 @@
 package bg.softuni.fruit_shop.web;
 
 
+import bg.softuni.fruit_shop.model.dto.UserLoginDTO;
 import bg.softuni.fruit_shop.model.dto.UserRegisterDTO;
 import bg.softuni.fruit_shop.service.UserService;
 import jakarta.validation.Valid;
@@ -11,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class UserController {
@@ -42,7 +44,24 @@ public class UserController {
 
 
     @GetMapping("/login")
-    public String showLoginPage() {
-        return "login";
+    public ModelAndView viewLogin() {
+        ModelAndView modelAndView = new ModelAndView("login");
+
+        modelAndView.addObject("loginData", new UserLoginDTO());
+
+        return modelAndView;
+    }
+
+
+
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
+
+
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
     }
 }

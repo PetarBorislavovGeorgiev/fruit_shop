@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head}"></head>
+
 <body>
 <div th:replace="~{fragments/navbar}"></div>
-<body>
 <div class="container mt-5">
     <h2>Login</h2>
     <form>
@@ -19,5 +19,8 @@
     </form>
 </div>
 
-<script src="js/bootstrap.bundle.min.js"></script>
+<div th:replace="~{fragments/footer}"></div>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
+</html>

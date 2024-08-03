@@ -1,5 +1,6 @@
 package bg.softuni.fruit_shop.service;
 
+import bg.softuni.fruit_shop.model.dto.UserLoginDTO;
 import bg.softuni.fruit_shop.model.dto.UserRegisterDTO;
 import bg.softuni.fruit_shop.model.entity.User;
 import bg.softuni.fruit_shop.repository.UserRepository;
@@ -26,4 +27,6 @@ public class UserService {
         user.setPhoneNumber(userRegisterDTO.getPhoneNumber());
         userRepository.save(user);
     }
+
+
 }

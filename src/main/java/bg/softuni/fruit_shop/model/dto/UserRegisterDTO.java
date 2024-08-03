@@ -25,7 +25,9 @@ public class UserRegisterDTO {
     private String email;
 
 
+    @Size(min = 4, max = 20)
     private String password;
+
 
     private String confirmPassword;
 

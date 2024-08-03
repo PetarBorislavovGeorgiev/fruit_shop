@@ -11,9 +11,6 @@ public class UserLoginDTO {
     @NotBlank(message = "You must enter a password!")
     private String password;
 
-    public UserLoginDTO() {
-    }
-
     public String getEmail() {
         return email;
     }
