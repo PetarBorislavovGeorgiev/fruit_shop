@@ -9,35 +9,35 @@
   <h2>Register</h2>
   <form class="form-group" action="#" th:action="@{/register}" th:object="${user}" method="post" >
     <div>
-      <label for="firstName">First Name:</label>
+      <label for="firstName" class="col-sm-2 col-form-label">First Name:</label>
       <input type="text" id="firstName" th:field="*{firstName}" required minlength="2" maxlength="20" />
     </div>
     <div>
-      <label for="middleName">Middle Name:</label>
+      <label for="middleName" class="col-sm-2 col-form-label">Middle Name:</label>
       <input type="text" id="middleName" th:field="*{middleName}" required minlength="2" maxlength="20" />
     </div>
     <div>
-      <label for="lastName">Last Name:</label>
+      <label for="lastName" class="col-sm-2 col-form-label">Last Name:</label>
       <input type="text" id="lastName" th:field="*{lastName}" required minlength="2" maxlength="20" />
     </div>
     <div>
-      <label for="email">Email:</label>
+      <label for="email" class="col-sm-2 col-form-label">Email:</label>
       <input type="email" id="email" th:field="*{email}" required />
     </div>
     <div>
-      <label for="password">Password:</label>
+      <label for="password" class="col-sm-2 col-form-label">Password:</label>
       <input type="password" id="password" th:field="*{password}" required minlength="8" maxlength="20" />
     </div>
     <div>
-      <label for="confirmPassword">Confirm Password:</label>
+      <label for="confirmPassword" class="col-sm-2 col-form-label">Confirm Password:</label>
       <input type="password" id="confirmPassword" th:field="*{confirmPassword}" required minlength="4" maxlength="20" />
     </div>
     <div>
-      <label for="phoneNumber">Phone Number:</label>
+      <label for="phoneNumber" class="col-sm-2 col-form-label">Phone Number:</label>
       <input type="text" id="phoneNumber" th:field="*{phoneNumber}" />
     </div>
-    <div>
-      <button type="submit">Register</button>
+    <div class="col-sm-9 offset-sm-auto">
+      <button type="submit" class="btn btn-primary">Register</button>
     </div>
   </form>
 
