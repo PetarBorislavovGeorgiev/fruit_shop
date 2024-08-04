@@ -15,7 +15,7 @@ public class Order extends BaseEntity{
 
 
     @ManyToOne(optional = false)
-    private User customer;
+    private UserEntity customer;
 
     @ManyToMany
     private List<CartItem> items;
@@ -34,11 +34,11 @@ public class Order extends BaseEntity{
         this.dateCreated = dateCreated;
     }
 
-    public User getCustomer() {
+    public UserEntity getCustomer() {
         return customer;
     }
 
-    public void setCustomer(User customer) {
+    public void setCustomer(UserEntity customer) {
         this.customer = customer;
     }
 

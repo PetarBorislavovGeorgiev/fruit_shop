@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity{
+public class UserEntity extends BaseEntity{
 
 
     @Column(name = "first_name", nullable = false)
@@ -46,7 +46,7 @@ public class User extends BaseEntity{
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
-    public User() {
+    public UserEntity() {
         this.addresses = new HashSet<>();
         this.roles = new HashSet<>();
     }

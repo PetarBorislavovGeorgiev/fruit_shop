@@ -34,8 +34,6 @@ public class UserRegisterDTO {
     @NotBlank
     private String phoneNumber;
 
-    public UserRegisterDTO() {
-    }
 
     public String getFirstName() {
         return firstName;
