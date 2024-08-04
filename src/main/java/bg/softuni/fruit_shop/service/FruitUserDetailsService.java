@@ -3,6 +3,7 @@ package bg.softuni.fruit_shop.service;
 import bg.softuni.fruit_shop.model.entity.Role;
 import bg.softuni.fruit_shop.model.entity.UserEntity;
 import bg.softuni.fruit_shop.model.enums.RoleType;
+import bg.softuni.fruit_shop.model.user.FruitUserDetails;
 import bg.softuni.fruit_shop.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -32,23 +33,18 @@ public class FruitUserDetailsService implements UserDetailsService {
     }
 
 
-    private static UserDetails map(UserEntity userEntity){
-        return User.withUsername(userEntity.getEmail())
-                .password(userEntity.getPassword())
-                .authorities(List.of()).disabled(false).build();
-    }
 
-//    private static UserDetails map(UserEntity userEntity) {
-//
-//        return new FruitUserDetailsService(
-//                userEntity.getId(),
-//                userEntity.getEmail(),
-//                userEntity.getPassword(),
-//                userEntity.getRoles().stream().map(Role::getRole).map(FruitUserDetailsService::map).toList(),
-//                userEntity.getFirstName(),
-//                userEntity.getLastName()
-//        );
-//    }
+    private static UserDetails map(UserEntity userEntity) {
+
+        return new FruitUserDetails(
+                userEntity.getId(),
+                userEntity.getEmail(),
+                userEntity.getPassword(),
+                userEntity.getRoles().stream().map(Role::getRole).map(FruitUserDetailsService::map).toList(),
+                userEntity.getFirstName(),
+                userEntity.getLastName()
+        );
+    }
 
     private static GrantedAuthority map(RoleType role) {
         return new SimpleGrantedAuthority(

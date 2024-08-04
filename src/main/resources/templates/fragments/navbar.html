@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<body th:fragment="navbar">
-<nav class="navbar navbar-expand-lg navbar-light bg-light" th:with="isLogged=${@loggedUser.isLogged}">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body th:fragment="navbar(activeLink)">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
     <a class="navbar-brand" href="/">Fruit Shop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active" th:if="${isLogged}">
+            <li class="nav-item active" >
                 <a class="nav-link"  th:href="@{/}">Home</a>
             </li>
             <li class="nav-item">
@@ -19,15 +20,16 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item" th:unless="${isLogged}">
-                <a class="nav-link"  th:href="@{/users/login}">Login</a>
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a class="nav-link" th:classappend="${activeLink == 'login'}? 'active'"  th:href="@{/users/login}">Login</a>
             </li>
-            <li class="nav-item" th:unless="${isLogged}">
-                <a class="nav-link"  th:href="@{/users/register}">Register</a>
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a class="nav-link" th:classappend="${activeLink == 'register'}? 'active'"  th:href="@{/users/register}">Register</a>
             </li>
-            <li class="nav-item" th:if="${isLogged}">
-                <form th:method="post" th:action="@{logout}">
-                <a class="nav-link">Logout</a>
+            <li class="nav-item" sec:authorize="isAuthenticated()">
+                <div class="logged-user" text="Welcome, Gosho"></div>
+                <form th:method="post" th:action="@{/users/logout}">
+                    <input class="btn btn-link" type="submit" value="Logout"/>
                 </form>
             </li>
         </ul>

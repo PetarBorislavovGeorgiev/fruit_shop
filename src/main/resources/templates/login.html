@@ -4,7 +4,8 @@
 <head th:replace="~{fragments/head}"></head>
 
 <body>
-<div th:replace="~{fragments/navbar}"></div>
+<div th:replace="~{fragments/navbar::navbar(activeLink=${'login'})}"></div>
+
 <div class="container mt-5">
     <h2>Login</h2>
     <form th:method="post" th:action="@{/users/login}">
@@ -13,8 +14,8 @@
             <input type="email" class="form-control col-md-3" id="email" placeholder="Enter email" name="email">
         </div>
         <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control col-md-3" id="pwd" placeholder="Enter password" name="pwd">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control col-md-3" id="password" placeholder="Enter password" name="password">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
